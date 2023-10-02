@@ -9,6 +9,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./task-item.component.scss'],
 })
 export class TaskItemComponent {
+  // yo task chai parent component task ko html bata props ko through akko ho so input use gareko lina lai.
   @Input() task!: Task;
   faCoffee = faCoffee;
 }
