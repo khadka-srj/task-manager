@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
-import { TASKS } from 'src/mock-task';
 
 @Component({
   selector: 'app-task',
