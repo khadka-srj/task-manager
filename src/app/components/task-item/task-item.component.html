@@ -1,6 +1,7 @@
 <div class="task-item">
   <h2>{{ task.text }}</h2>
   <fa-icon
+    (click)="onDelete(task)"
     [icon]="faCoffee"
     [ngStyle]="{
       color: 'brown'
