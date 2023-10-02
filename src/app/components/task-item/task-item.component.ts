@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from 'src/Task';
 
-import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-task-item',
@@ -13,7 +13,7 @@ export class TaskItemComponent {
   @Input() task!: Task;
   // you emit gareko event chai aba hamro yo component ko tag ma access garna milxa.
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
-  faDeleteLeft = faDeleteLeft;
+  faDeleteLeft = faTrash;
 
   onDelete(task: Task) {
     this.onDeleteTask.emit(task);

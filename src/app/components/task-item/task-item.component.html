@@ -1,11 +1,12 @@
 <div class="taskItem">
   <div class="taskItem__header">
-    <h2>{{ task.text }}</h2>
+    <h3>{{ task.text }}</h3>
     <fa-icon
       (click)="onDelete(task)"
       [icon]="faDeleteLeft"
       [ngStyle]="{
-        color: 'red'
+        color: 'red',
+        cursor: 'pointer'
       }"
     ></fa-icon>
   </div>
