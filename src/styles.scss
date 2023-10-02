@@ -2,12 +2,15 @@
 body {
   display: flex;
   justify-content: center;
+  background-color: #1d2327;
+  color: #f3f3f3;
 }
 .container {
   padding: 1rem;
   min-width: 500px;
   min-height: 400px;
   border: 2px solid green;
+  color: #f3f3f3;
 }
 .btn {
   padding: 8px 16px;

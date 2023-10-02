@@ -1,11 +1,13 @@
-<div class="task-item">
-  <h2>{{ task.text }}</h2>
-  <fa-icon
-    (click)="onDelete(task)"
-    [icon]="faCoffee"
-    [ngStyle]="{
-      color: 'brown'
-    }"
-  ></fa-icon>
+<div class="taskItem">
+  <div class="taskItem__header">
+    <h2>{{ task.text }}</h2>
+    <fa-icon
+      (click)="onDelete(task)"
+      [icon]="faDeleteLeft"
+      [ngStyle]="{
+        color: 'red'
+      }"
+    ></fa-icon>
+  </div>
   <p>{{ task.day }}</p>
 </div>

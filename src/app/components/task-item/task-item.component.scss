@@ -1,6 +1,14 @@
-.task-item {
-  background-color: gray;
+.taskItem {
   padding: 0.5rem;
   margin-bottom: 1rem;
+
+  p {
+    margin: 0;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   //   box-shadow: 5px 10px #888888;
 }

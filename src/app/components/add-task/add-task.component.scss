@@ -1,0 +1,10 @@
+.addForm {
+  &__formControl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  button {
+    margin-top: 1rem;
+  }
+}

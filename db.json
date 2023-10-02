@@ -1,10 +1,15 @@
 {
   "tasks": [
     {
-      "id": 3,
-      "text": "play fifa",
+      "id": 2,
+      "text": "play futsal",
       "remainder": true,
       "day": "November 10 at 8:pm"
+    },
+    {
+      "text": "new note",
+      "day": "sunday 8pm",
+      "id": 3
     }
   ]
 }
