@@ -1,14 +1,16 @@
 <div class="header">
-  <h2>All Notes</h2>
+  <h2 routerLink="/">All Notes</h2>
   <div class="header__right">
     <a>login</a>
-    <fa-icon
-      [icon]="faAdd"
-      size="lg"
-      [ngStyle]="{
-        color: 'green',
-        cursor: 'pointer'
-      }"
-    ></fa-icon>
+    <a routerLink="/new">
+      <fa-icon
+        [icon]="faAdd"
+        size="lg"
+        [ngStyle]="{
+          color: 'green',
+          cursor: 'pointer'
+        }"
+      ></fa-icon>
+    </a>
   </div>
 </div>

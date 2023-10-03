@@ -7,7 +7,7 @@ import { Task } from 'src/Task';
   providedIn: 'root',
 })
 export class TaskService {
-  // private httpOption = {conte}
+  tasks: Task[] = [];
   private apiUrl = 'http://localhost:3000/tasks';
   // adding httpclient as an argument as a DA.
   constructor(private http: HttpClient) {}

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Task } from 'src/Task';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -7,6 +8,7 @@ import { Task } from 'src/Task';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent {
+  constructor(private taskService: TaskService) {}
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
   text?: string;
   day?: string;
@@ -33,10 +35,13 @@ export class AddTaskComponent {
       day: this.day,
       content: this.content,
     };
-    // emmitting
-    this.onAddTask.emit(newTask);
+    // to emmit we do this
+    // this.onAddTask.emit(newTask);
+
+    this.taskService.addTask(newTask).subscribe();
     // clearing the form
     this.text = '';
     this.day = '';
+    this.content = '';
   }
 }
