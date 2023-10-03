@@ -10,6 +10,7 @@ export class AddTaskComponent {
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
   text?: string;
   day?: string;
+  content?: string;
 
   onSubmit() {
     // form validation
@@ -21,11 +22,16 @@ export class AddTaskComponent {
       alert("You can't leave this field empty.");
       return;
     }
+    if (!this.content) {
+      alert("You can't leave this field empty.");
+      return;
+    }
 
     // new task
     const newTask: Task = {
       text: this.text,
       day: this.day,
+      content: this.content,
     };
     // emmitting
     this.onAddTask.emit(newTask);

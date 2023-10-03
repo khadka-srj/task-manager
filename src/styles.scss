@@ -23,7 +23,7 @@ html {
 }
 body {
   justify-content: center;
-  background-color: #1d2327;
+  background-color: $DarkBlue;
   color: #f3f3f3;
   margin: 0;
   padding: 0;
@@ -103,6 +103,7 @@ a,
 a:visited,
 a:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 //flex
 .flex {

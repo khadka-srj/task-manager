@@ -2,4 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  &__right {
+    a {
+      margin-right: 1rem;
+    }
+  }
 }

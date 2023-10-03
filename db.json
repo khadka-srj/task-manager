@@ -1,13 +1,33 @@
 {
   "tasks": [
     {
-      "text": "new note1",
-      "day": "make css look good",
-      "id": 4
+      "text": "dark themed ",
+      "day": "today",
+      "content": "sjosns",
+      "id": 1
     },
     {
-      "text": "Router implementaion",
-      "day": "Tuesday  9: 30",
+      "text": "router",
+      "day": "today",
+      "content": "smldmfl\n",
+      "id": 2
+    },
+    {
+      "text": "dark themed ",
+      "day": "today",
+      "content": "sjosns",
+      "id": 3
+    },
+    {
+      "text": "router",
+      "day": "today",
+      "content": "smldmfl\n",
+      "id": 6
+    },
+    {
+      "text": "router",
+      "day": "today",
+      "content": "smldmfl\n",
       "id": 5
     }
   ]

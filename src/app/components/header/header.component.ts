@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faFeather } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +7,5 @@ import { faFeather } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  faAdd = faFeather;
+  faAdd = faPenToSquare;
 }

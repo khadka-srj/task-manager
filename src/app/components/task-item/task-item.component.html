@@ -1,5 +1,5 @@
-<div class="taskItem">
-  <div class="taskItem__header">
+<div class="item">
+  <div class="item__header">
     <h3>{{ task.text }}</h3>
     <fa-icon
       (click)="onDelete(task)"
@@ -10,5 +10,9 @@
       }"
     ></fa-icon>
   </div>
-  <p>{{ task.day }}</p>
+  <p>{{ task.content }}</p>
+  <div class="item__date">
+    <fa-icon [icon]="faCalender" [ngStyle]="{}"></fa-icon>
+    <p>{{ task.day }}</p>
+  </div>
 </div>
