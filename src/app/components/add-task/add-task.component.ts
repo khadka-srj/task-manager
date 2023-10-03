@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -8,7 +9,8 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent {
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private router: Router) {}
+
   @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
   text?: string;
   day?: string;
@@ -39,6 +41,7 @@ export class AddTaskComponent {
     // this.onAddTask.emit(newTask);
 
     this.taskService.addTask(newTask).subscribe();
+    this.router.navigate(['/']);
     // clearing the form
     this.text = '';
     this.day = '';

@@ -1,10 +1,130 @@
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .addForm {
+  width: 350px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 20px 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
   &__formControl {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    label {
+      margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input {
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 12px;
+      color: red;
+    }
   }
   button {
     margin-top: 1rem;
   }
 }
+// .signup {
+//   display: flex;
+//   align-items: center;
+//   // justify-content: center;
+//   flex-direction: column;
+//   height: 100vh;
+
+//   a {
+//     color: red;
+//   }
+
+//   &__logo {
+//     width: 200px;
+//     height: 200px;
+//     margin: 0;
+//   }
+
+//   &__form {
+//     width: 350px;
+//     height: fit-content;
+//     display: flex;
+//     flex-direction: column;
+//     border-radius: 5px;
+//     border: 1px solid lightgray;
+//     padding: 20px 20px;
+//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+
+//     .password__input {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: flex-end;
+//       border: 1.5px solid black;
+//       padding-left: 0.2rem;
+//       padding-right: 0.2rem;
+//       border-radius: 0.2rem;
+
+//       > input {
+//         flex-grow: 2;
+//         border: none;
+//       }
+
+//       // this hides the default password reveal
+//       > input::-ms-reveal,
+//       input::-ms-clear {
+//         display: none;
+//       }
+//     }
+
+//     .input {
+//       display: flex;
+//       flex-direction: column;
+//       margin-bottom: 20px;
+
+//       span {
+//         margin-bottom: 7px;
+//         font-size: 13px;
+//         font-weight: bold;
+//         color: black;
+//       }
+
+//       input {
+//         background: none;
+//         height: 30px;
+//         outline: none;
+//         border-radius: 5px;
+//       }
+
+//       p {
+//         margin: 0;
+//         font-size: 12px;
+//         color: red;
+//       }
+//     }
+//   }
+
+//   .signUp {
+//     &__already {
+//       display: flex;
+//       justify-content: space-between;
+
+//       > P {
+//         margin-top: 0;
+//         margin-bottom: 0;
+//       }
+//     }
+//   }
+// }

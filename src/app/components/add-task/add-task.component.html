@@ -1,26 +1,26 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
-<form class="addForm" (ngSubmit)="onSubmit()">
-  <div class="addForm__formControl">
-    <label>Title</label>
-    <input type="text" name="text" [(ngModel)]="text" placeholder="Title" />
-  </div>
-  <div class="addForm__formControl">
-    <label>Day and Time</label>
-    <input type="text" name="day" [(ngModel)]="day" placeholder="" />
-  </div>
-  <div class="addForm__formControl">
-    <label>Description</label>
-    <textarea
-      maxlength="200"
-      id="textArea"
-      name="content"
-      [(ngModel)]="content"
-      rows="4"
-      cols="50"
-    ></textarea>
-  </div>
-  <button type="submit" class="btn">Submit</button>
-  <!-- {{ text }}
-  {{ day }}
-  {{ content }} -->
-</form>
+<div class="center">
+  <form class="addForm" (ngSubmit)="onSubmit()">
+    <h3>New Note</h3>
+    <div class="addForm__formControl">
+      <label>Title</label>
+      <input type="text" name="text" [(ngModel)]="text" placeholder="Title" />
+    </div>
+    <div class="addForm__formControl">
+      <label>Day and Time</label>
+      <input type="text" name="day" [(ngModel)]="day" placeholder="" />
+    </div>
+    <div class="addForm__formControl">
+      <label>Description</label>
+      <textarea
+        maxlength="200"
+        id="textArea"
+        name="content"
+        [(ngModel)]="content"
+        rows="4"
+        cols="50"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn">Save Note</button>
+  </form>
+</div>
