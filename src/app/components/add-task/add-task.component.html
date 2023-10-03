@@ -1,6 +1,6 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
 <div class="center">
-  <form class="addForm" (ngSubmit)="onSubmit()">
+  <form *ngIf="showAddNote" class="addForm" (ngSubmit)="onSubmit()">
     <h3>New Note</h3>
     <div class="addForm__formControl">
       <label>Title</label>

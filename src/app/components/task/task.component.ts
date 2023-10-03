@@ -13,7 +13,6 @@ export class TaskComponent {
   constructor(private taskService: TaskService) {}
   // ngOnInit chai lifecycle method ho ra yo initialize huda run huncha.
   ngOnInit(): void {
-    console.log('taskcomponent ran');
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
   deleteTask(task: Task) {

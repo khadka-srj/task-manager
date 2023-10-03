@@ -16,7 +16,6 @@ import { PageNotFoundComponentComponent } from './components/page-not-found-comp
 
 const appRoutes: Routes = [
   { path: '', component: TaskComponent },
-  { path: 'new', component: AddTaskComponent },
   { path: '**', component: PageNotFoundComponentComponent },
 ];
 

@@ -2,8 +2,13 @@
   <h3 routerLink="/">All Notes</h3>
   <div class="header__right">
     <a>login</a>
-    <a routerLink="/new">
+    <app-button
+      (btnClick)="toggleAdd()"
+      text="{{ showAddNote ? 'Add' : 'Close' }}"
+    ></app-button>
+    <!-- <a routerLink="/new">
       <fa-icon
+        (click)="toggleAdd()"
         [icon]="faAdd"
         size="lg"
         [ngStyle]="{
@@ -11,6 +16,6 @@
           cursor: 'pointer'
         }"
       ></fa-icon>
-    </a>
+    </a> -->
   </div>
 </div>
