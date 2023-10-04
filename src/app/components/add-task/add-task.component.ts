@@ -50,10 +50,10 @@ export class AddTaskComponent {
       content: this.content,
     };
     // to emmit we do this
-    // this.onAddTask.emit(newTask);
+    this.onAddTask.emit(newTask);
 
-    this.taskService.addTask(newTask).subscribe();
-    this.router.navigate(['/']);
+    // this.taskService.addTask(newTask).subscribe();
+    // this.router.navigate(['/']);
     // clearing the form
     this.text = '';
     this.day = '';
