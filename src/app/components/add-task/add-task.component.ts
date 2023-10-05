@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
-import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-add-task',
@@ -12,43 +11,27 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent {
-  showAddNote?: boolean;
+  tsk?: Task;
   subscription?: Subscription;
   empForm: FormGroup;
   constructor(
     private _fb: FormBuilder,
     private taskService: TaskService,
-    private router: Router,
-    private uiService: UiService
+    private router: Router
   ) {
     this.empForm = this._fb.group({
       text: '',
       day: '',
     });
-    this.subscription = this.uiService
-      .onToggle()
-      .subscribe((value) => (this.showAddNote = value));
+    this.subscription = this.taskService
+      .toggleAdd()
+      .subscribe((value) => (this.tsk = value));
   }
 
-  @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
-  text?: string;
-  day?: string;
-  content?: string;
-
   onSubmit() {
-    console.log(this.empForm.value, 'clicked');
-
     // to emmit we do this
-    this.onAddTask.emit(this.empForm.value);
-
-    // this.taskService.addTask(this.empForm.value).subscribe({
-    //   next: (val: any) => {
-    //     alert('task added sucessfully');
-    //   },
-    //   error: (val: any) => {
-    //     console.log(val);
-    //   },
-    // });
+    // this.onAddTask.emit(this.empForm.value);
+    this.taskService.taskAdded(this.empForm.value);
   }
 }
 

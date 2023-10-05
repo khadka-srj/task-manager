@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from './components/add-task/add-task.component';
-import { TaskService } from './services/task.service';
 import { Task } from 'src/Task';
 
 @Component({
@@ -12,15 +11,8 @@ import { Task } from 'src/Task';
 export class AppComponent implements OnInit {
   tasks: Task[] = [];
   title = 'testapp';
-  constructor(private _dialog: MatDialog, private taskService: TaskService) {}
-  ngOnInit(): void {
-    this.taskService.getTasks().subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: console.log,
-    });
-  }
+  constructor(private _dialog: MatDialog) {}
+  ngOnInit(): void {}
   openAddEditDialog() {
     this._dialog.open(AddTaskComponent);
   }
