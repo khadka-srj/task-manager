@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Task } from 'src/Task';
 
 @Injectable({
@@ -19,7 +19,14 @@ export class TaskService {
   //2nd
   // yo function ko type chai Task bhane array jasto cha ra ele TASKS return garcha aba elai observables banauna lagya.
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl);
+    return this.http.get<Task[]>(this.apiUrl).pipe(
+      tap((tasks) => {
+        this.tasks = tasks;
+      })
+    );
+  }
+  getTaskReturn() {
+    return this.tasks;
   }
   deleteTask(task: Task): Observable<Task> {
     const url = `${this.apiUrl}/${task.id}`;

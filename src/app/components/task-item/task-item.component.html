@@ -1,18 +1,22 @@
-<div class="item">
-  <div class="item__header">
-    <h3>{{ task.text }}</h3>
-    <fa-icon
-      (click)="onDelete(task)"
-      [icon]="faDeleteLeft"
-      [ngStyle]="{
-        color: 'red',
-        cursor: 'pointer'
-      }"
-    ></fa-icon>
-  </div>
-  <p>{{ task.content }}</p>
-  <div class="item__date">
-    <fa-icon [icon]="faCalender" [ngStyle]="{}"></fa-icon>
+<mat-card class="singleCard">
+  <mat-card-header>
+    <mat-card-title color="green">{{ task.text }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="singleCard__date">
+    <fa-icon [icon]="faCalender" [ngStyle]="{ color: '#31d35c' }"></fa-icon>
     <p>{{ task.day }}</p>
-  </div>
-</div>
+  </mat-card-content>
+
+  <mat-card-actions class="action">
+    <button
+      type="button"
+      mat-raised-button
+      color="warn"
+      (click)="onDelete(task)"
+    >
+      DELETE
+    </button>
+    <button type="submit" mat-stroked-button color="primary">UPDATE</button>
+  </mat-card-actions>
+</mat-card>

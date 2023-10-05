@@ -1,6 +1,27 @@
+<mat-toolbar color="primary">
+  <span>Note App</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class=""
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>login</mat-icon>
+  </button>
+  <button
+    color="dark"
+    mat-icon-button
+    class=""
+    aria-label="Example icon-button with heart icon"
+    (click)="openAddEditDialog()"
+  >
+    <mat-icon>note_add</mat-icon>
+  </button>
+</mat-toolbar>
+
 <div class="container">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
+  <app-task></app-task>
+  <!-- <router-outlet></router-outlet> -->
   <!-- routerOutlet ko home ma chai app-task or taskComponent cha so it is shown automatically -->
   <!-- <app-task></app-task> -->
 </div>

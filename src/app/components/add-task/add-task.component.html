@@ -1,26 +1,31 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
-<div *ngIf="showAddNote" class="center">
-  <form class="addForm" (ngSubmit)="onSubmit()">
-    <h3>New Note</h3>
-    <div class="addForm__formControl">
-      <label>Title</label>
-      <input type="text" name="text" [(ngModel)]="text" placeholder="Title" />
+<!-- *ngIf="showAddNote" -->
+<!-- <div mat-dialog-title>
+  <h2>New Task</h2>
+</div> -->
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+  <div class="formContent" mat-dialog-content (ngSubmit)="onSubmit()">
+    <div class="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input type="text" formControlName="text" matInput />
+      </mat-form-field>
     </div>
-    <div class="addForm__formControl">
-      <label>Day and Time</label>
-      <input type="text" name="day" [(ngModel)]="day" placeholder="" />
+    <div class="column">
+      <mat-form-field appearance="outline">
+        <input matInput [matDatepicker]="picker" formControlName="day" />
+        <mat-label>Day and Time</mat-label>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </div>
-    <div class="addForm__formControl">
-      <label>Description</label>
-      <textarea
-        maxlength="200"
-        id="textArea"
-        name="content"
-        [(ngModel)]="content"
-        rows="4"
-        cols="50"
-      ></textarea>
-    </div>
-    <button type="submit" class="btn">Save Note</button>
-  </form>
-</div>
+  </div>
+  <div class="action" mat-dialog-actions>
+    <button type="button" mat-raised-button color="warn">CANCEL</button>
+    <button type="submit" mat-raised-button color="primary">SAVE</button>
+  </div>
+</form>

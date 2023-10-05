@@ -21,10 +21,15 @@ html {
 ::after {
   box-sizing: inherit;
 }
+// material css for navbar
+.example-spacer {
+  flex: 1 1 auto;
+}
+
 body {
   justify-content: center;
-  background-color: $DarkBlue;
-  color: #f3f3f3;
+  background-color: $LightGrayishBlue;
+  color: $GrayishBlue;
   margin: 0;
   padding: 0;
   font-family: "Public Sans", sans-serif;
@@ -37,16 +42,34 @@ body {
     overflow: hidden;
   }
 }
+
+.overlay {
+  opacity: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient($DarkBlue, transparent);
+}
 h3 {
   margin-top: 0;
   margin-bottom: 1rem;
   color: $BrightCyan;
 }
-
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .container {
+  height: 100vh;
+  position: relative;
   // padding for desktop
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   // padding for mobile
   // padding-left: 2rem;
   // padding-right: 2rem;
@@ -107,23 +130,23 @@ a:hover {
   }
 }
 //buttons
-button,
-.button {
-  display: inline-block;
-  padding: 0.875rem 2.1875rem;
-  border-radius: 50px;
-  border: 0;
-  background: linear-gradient(to right, $LimeGreen, $BrightCyan);
-  cursor: pointer;
-  color: white;
-  font-weight: 400;
-  font-size: $sm-size;
-  transition: all 300ms ease-in-out;
+// button,
+// .button {
+//   display: inline-block;
+//   padding: 0.875rem 2.1875rem;
+//   border-radius: 50px;
+//   border: 0;
+//   background: linear-gradient(to right, $LimeGreen, $BrightCyan);
+//   cursor: pointer;
+//   color: white;
+//   font-weight: 400;
+//   font-size: $sm-size;
+//   transition: all 300ms ease-in-out;
 
-  &:hover {
-    opacity: 0.75;
-  }
-}
+//   &:hover {
+//     opacity: 0.75;
+//   }
+// }
 //visibility
 // .hide-for-mobile {
 //   //1024 bhanda tala aayo bhane hide garcha yo class le
@@ -136,3 +159,12 @@ button,
 //     display: none;
 //   }
 // }
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

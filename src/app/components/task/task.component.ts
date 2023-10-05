@@ -15,6 +15,7 @@ export class TaskComponent {
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
+
   deleteTask(task: Task) {
     this.taskService
       .deleteTask(task)
@@ -22,7 +23,9 @@ export class TaskComponent {
         () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
       );
   }
+
   addTask(task: Task) {
+    console.log('addtask clicked in emiiter');
     this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
   }
 }

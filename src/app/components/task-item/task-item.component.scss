@@ -1,24 +1,33 @@
-.item {
-  background-color: #1d2327;
-  border-radius: 0.3155rem;
-  overflow: hidden;
-  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
-  transition: all 150ms ease-in-out;
+.singleCard {
   padding: 0.5rem;
   margin-bottom: 1rem;
 
   p {
     margin: 0;
   }
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+  mat-card-title {
+    color: hsl(233, 26%, 24%);
+    text-transform: capitalize;
   }
+  mat-card-content {
+    padding-top: 0.3rem;
+    padding-bottom: 0.2rem;
+  }
+
   &__date {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
+  .action {
+    button {
+      flex: 1;
+    }
+    margin-top: 0.5rem;
+    gap: 1rem;
+    padding: 0 16px 20px;
+  }
+
   //   box-shadow: 5px 10px #888888;
 }
