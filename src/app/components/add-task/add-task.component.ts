@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +18,8 @@ export class AddTaskComponent {
   constructor(
     private _fb: FormBuilder,
     private taskService: TaskService,
-    private router: Router
+    private router: Router,
+    private dialogRef: DialogRef<AddTaskComponent>
   ) {
     this.empForm = this._fb.group({
       text: '',
@@ -32,6 +34,7 @@ export class AddTaskComponent {
     // to emmit we do this
     // this.onAddTask.emit(this.empForm.value);
     this.taskService.taskAdded(this.empForm.value);
+    this.dialogRef.close();
   }
 }
 

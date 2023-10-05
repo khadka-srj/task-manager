@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Task } from 'src/Task';
