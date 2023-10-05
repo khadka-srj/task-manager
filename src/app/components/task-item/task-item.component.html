@@ -5,7 +5,7 @@
 
   <mat-card-content class="singleCard__date">
     <fa-icon [icon]="faCalender" [ngStyle]="{ color: '#31d35c' }"></fa-icon>
-    <p>{{ task.day }}</p>
+    <p>{{ task.day | date }}</p>
   </mat-card-content>
 
   <mat-card-actions class="action">
@@ -17,6 +17,13 @@
     >
       DELETE
     </button>
-    <button type="submit" mat-stroked-button color="primary">UPDATE</button>
+    <button
+      (click)="openEditDialog(task)"
+      type="submit"
+      mat-stroked-button
+      color="primary"
+    >
+      UPDATE
+    </button>
   </mat-card-actions>
 </mat-card>

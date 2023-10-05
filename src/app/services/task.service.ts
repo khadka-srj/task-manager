@@ -9,6 +9,7 @@ import { Task } from 'src/Task';
 export class TaskService {
   private tsk!: Task;
   private subject = new Subject<any>();
+  private subjectUpdate = new Subject<any>();
   private apiUrl = 'http://localhost:3000/tasks';
   // adding httpclient as an argument as a DA.
   constructor(private http: HttpClient) {}
@@ -30,6 +31,9 @@ export class TaskService {
   addTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.apiUrl, task);
   }
+  updateTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task);
+  }
 
   // subject ko code
   taskAdded(tsk: Task): void {
@@ -38,5 +42,13 @@ export class TaskService {
   }
   toggleAdd(): Observable<any> {
     return this.subject.asObservable();
+  }
+  // updatesubject ko code
+  taskUpdated(tsk: Task): void {
+    this.tsk = tsk;
+    this.subjectUpdate.next(this.tsk);
+  }
+  toggleupdate(): Observable<any> {
+    return this.subjectUpdate.asObservable();
   }
 }

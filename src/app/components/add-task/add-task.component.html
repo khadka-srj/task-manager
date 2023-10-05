@@ -25,7 +25,16 @@
     </div>
   </div>
   <div class="action" mat-dialog-actions>
-    <button type="button" mat-raised-button color="warn">CANCEL</button>
-    <button type="submit" mat-raised-button color="primary">SAVE</button>
+    <button
+      (click)="closeDialog()"
+      type="button"
+      mat-raised-button
+      color="warn"
+    >
+      CANCEL
+    </button>
+    <button type="submit" mat-raised-button color="primary">
+      {{ data ? "UPDATE" : "SAVE" }}
+    </button>
   </div>
 </form>
