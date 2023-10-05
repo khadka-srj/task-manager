@@ -1,27 +1,31 @@
-<mat-toolbar color="primary">
-  <span>Note App</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class=""
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>login</mat-icon>
-  </button>
-  <button
-    color="dark"
-    mat-icon-button
-    class=""
-    aria-label="Example icon-button with heart icon"
-    (click)="openAddEditDialog()"
-  >
-    <mat-icon>note_add</mat-icon>
-  </button>
-</mat-toolbar>
+<div class="contentGrid">
+  <div class="contentGrid__toolbar">
+    <mat-toolbar class="mat-elevation-z6" color="primary">
+      <span>Note App</span>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class=""
+        aria-label="Example icon-button with heart icon"
+      >
+        <mat-icon>login</mat-icon>
+      </button>
+      <button
+        color="dark"
+        mat-icon-button
+        class=""
+        aria-label="Example icon-button with heart icon"
+        (click)="openAddEditDialog()"
+      >
+        <mat-icon>note_add</mat-icon>
+      </button>
+    </mat-toolbar>
+  </div>
 
-<div class="container">
-  <app-task></app-task>
-  <!-- <router-outlet></router-outlet> -->
-  <!-- routerOutlet ko home ma chai app-task or taskComponent cha so it is shown automatically -->
-  <!-- <app-task></app-task> -->
+  <div class="container">
+    <app-task></app-task>
+    <!-- <router-outlet></router-outlet> -->
+    <!-- routerOutlet ko home ma chai app-task or taskComponent cha so it is shown automatically -->
+    <!-- <app-task></app-task> -->
+  </div>
 </div>
