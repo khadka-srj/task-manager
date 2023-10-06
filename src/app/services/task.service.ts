@@ -11,7 +11,7 @@ export class TaskService {
   private subject = new Subject<any>();
   private subjectUpdate = new Subject<any>();
   private subjectDelete = new Subject<any>();
-  private apiUrl = 'http://localhost:3000/tasks';
+  private apiUrl = 'http://localhost:5000';
   // adding httpclient as an argument as a DA.
   constructor(private http: HttpClient) {}
   // 1st

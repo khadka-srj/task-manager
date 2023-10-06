@@ -1,24 +1,19 @@
 <mat-card class="deleteModal">
-  <mat-card-header>
-    <mat-card-title>Are you sure you want to delete?</mat-card-title>
-  </mat-card-header>
+  <form (ngSubmit)="onSubmit()">
+    <mat-card-header>
+      <mat-card-title>Are you sure you want to delete?</mat-card-title>
+    </mat-card-header>
 
-  <mat-card-actions class="action">
-    <button
-      (click)="closeDialog()"
-      type="button"
-      mat-raised-button
-      color="warn"
-    >
-      CANCEL
-    </button>
-    <button
-      (click)="onDelete()"
-      type="button"
-      mat-raised-button
-      color="primary"
-    >
-      CONFIRM
-    </button>
-  </mat-card-actions>
+    <mat-card-actions class="action">
+      <button
+        type="button"
+        (click)="closeDialog()"
+        mat-raised-button
+        color="warn"
+      >
+        CANCEL
+      </button>
+      <button type="submit" mat-raised-button color="primary">CONFIRM</button>
+    </mat-card-actions>
+  </form>
 </mat-card>

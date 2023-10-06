@@ -1,23 +1,28 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
-<!-- *ngIf="showAddNote" -->
-<!-- <div mat-dialog-title>
-  <h2>New Task</h2>
-</div> -->
 <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
   <div class="formContent" mat-dialog-content>
     <mat-card-title class="header">
       {{ data ? "Update Note" : "Add Note" }}</mat-card-title
     >
-
     <div class="column">
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
-        <input type="text" formControlName="text" matInput />
+        <input
+          aria-label="Enter the title of the Note"
+          type="text"
+          formControlName="text"
+          matInput
+        />
       </mat-form-field>
     </div>
     <div class="column">
       <mat-form-field appearance="outline">
-        <input matInput [matDatepicker]="picker" formControlName="day" />
+        <input
+          aria-label="Enter the date of the Note"
+          matInput
+          [matDatepicker]="picker"
+          formControlName="day"
+        />
         <mat-label>Day and Time</mat-label>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
@@ -30,6 +35,7 @@
   </div>
   <div class="action" mat-dialog-actions>
     <button
+      aria-label="Enter to cancel"
       (click)="closeDialog()"
       type="button"
       mat-raised-button
@@ -37,7 +43,12 @@
     >
       CANCEL
     </button>
-    <button type="submit" mat-raised-button color="primary">
+    <button
+      aria-label="Enter to save the note"
+      type="submit"
+      mat-raised-button
+      color="primary"
+    >
       {{ data ? "UPDATE" : "SAVE" }}
     </button>
   </div>

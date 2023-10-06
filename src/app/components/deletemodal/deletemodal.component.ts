@@ -17,7 +17,7 @@ export class DeletemodalComponent {
   closeDialog() {
     this.dialog.close();
   }
-  onDelete() {
+  onSubmit() {
     this.taskService.taskDeleted(this.data);
     this.dialog.close();
     // aba yo data lai delete garna paro.

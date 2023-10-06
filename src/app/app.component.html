@@ -1,10 +1,11 @@
 <div class="contentGrid">
   <div class="contentGrid__toolbar">
     <mat-toolbar class="mat-elevation-z6" color="primary">
-      <span>Note App</span>
+      <div>Note App</div>
       <span class="example-spacer"></span>
       <div class="toolbarButtons">
         <button
+          aria-label="Enter to add a new  Note"
           class="smallButton"
           mat-icon-button
           class=""
@@ -12,7 +13,12 @@
         >
           <mat-icon>note_add</mat-icon>
         </button>
-        <button class="smallButton" mat-raised-button color="primary">
+        <button
+          aria-label="Enter to login to your account"
+          class="smallButton"
+          mat-raised-button
+          color="primary"
+        >
           LOGIN
         </button>
       </div>
