@@ -4,7 +4,11 @@
   <h2>New Task</h2>
 </div> -->
 <form [formGroup]="empForm" (ngSubmit)="onSubmit()">
-  <div class="formContent" mat-dialog-content (ngSubmit)="onSubmit()">
+  <div class="formContent" mat-dialog-content>
+    <mat-card-title class="header">
+      {{ data ? "Update Note" : "Add Note" }}</mat-card-title
+    >
+
     <div class="column">
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
