@@ -24,6 +24,7 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { PageNotFoundComponentComponent } from './components/page-not-found-component/page-not-found-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DeletemodalComponent } from './components/deletemodal/deletemodal.component';
 
 const appRoutes: Routes = [
   { path: '', component: TaskComponent },
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     TaskItemComponent,
     AddTaskComponent,
     PageNotFoundComponentComponent,
+    DeletemodalComponent,
   ],
   imports: [
     BrowserModule,

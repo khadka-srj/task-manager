@@ -1,0 +1,24 @@
+.deleteModal {
+  padding: 1rem;
+  // margin-bottom: 1rem;
+
+  p {
+    margin: 0;
+  }
+  mat-card-header {
+    padding-bottom: 1rem;
+  }
+  mat-card-title {
+    color: hsl(233, 26%, 24%);
+  }
+  .action {
+    button {
+      flex: 1;
+    }
+    margin-top: 0.5rem;
+    gap: 1rem;
+    padding: 0 16px 20px;
+  }
+
+  //   box-shadow: 5px 10px #888888;
+}

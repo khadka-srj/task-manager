@@ -6,6 +6,7 @@ import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskService } from 'src/app/services/task.service';
+import { DeletemodalComponent } from '../deletemodal/deletemodal.component';
 
 @Component({
   selector: 'app-task-item',
@@ -22,19 +23,17 @@ export class TaskItemComponent {
   faDeleteLeft = faTrash;
   faCalender = faCalendar;
 
-  onDelete(task: Task) {
-    this.onDeleteTask.emit(task);
+  // onDelete(task: Task) {
+  //   this.onDeleteTask.emit(task);
+  //   this._dialog.open(DeletemodalComponent);
+  // }
+  openDeleteDialog(data: any) {
+    this._dialog.open(DeletemodalComponent, { data });
   }
+  // this will open a material dialog and send data to the addtaskcomponent.
   openEditDialog(data: any) {
-    const dialogRef = this._dialog.open(AddTaskComponent, {
+    this._dialog.open(AddTaskComponent, {
       data,
-    });
-    dialogRef.afterClosed().subscribe({
-      next: (val: any) => {
-        if (val) {
-          this.taskService.getTasks().subscribe();
-        }
-      },
     });
   }
   updateTask(task: Task) {

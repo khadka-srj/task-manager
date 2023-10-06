@@ -10,6 +10,7 @@ export class TaskService {
   private tsk!: Task;
   private subject = new Subject<any>();
   private subjectUpdate = new Subject<any>();
+  private subjectDelete = new Subject<any>();
   private apiUrl = 'http://localhost:3000/tasks';
   // adding httpclient as an argument as a DA.
   constructor(private http: HttpClient) {}
@@ -50,5 +51,12 @@ export class TaskService {
   }
   toggleupdate(): Observable<any> {
     return this.subjectUpdate.asObservable();
+  }
+  // deleteSubject ko code
+  taskDeleted(tsk: Task): void {
+    this.subjectDelete.next(tsk);
+  }
+  toggleDelete(): Observable<any> {
+    return this.subjectDelete.asObservable();
   }
 }
