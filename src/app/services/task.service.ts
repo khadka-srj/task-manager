@@ -31,7 +31,6 @@ export class TaskService {
   }
   addTask(task: Task): Observable<Task> {
     console.log(task, 'in add task service');
-    const headers = { 'content-type': 'application/json' };
     return this.http.post<Task>(`${this.apiUrl}/new`, task);
   }
   updateTask(task: Task): Observable<Task> {

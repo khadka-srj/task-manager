@@ -57,6 +57,7 @@ export class TaskComponent {
       },
     });
   }
+
   UpdateTask(task: Task) {
     this.taskService.updateTask(task).subscribe({
       next: (val: any) => {
