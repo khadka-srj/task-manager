@@ -1,20 +1,14 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
-<form
-  class="addTaskAndUpdateForm"
-  [formGroup]="empForm"
-  (ngSubmit)="onSubmit()"
->
+<form class="loginSignUpForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <div class="formContent" mat-dialog-content>
-    <mat-card-title class="header">
-      {{ data ? "Update Note" : "Add Note" }}</mat-card-title
-    >
+    <mat-card-title class="header"> login/signup</mat-card-title>
     <div class="column">
       <mat-form-field appearance="outline">
-        <mat-label>Title</mat-label>
+        <mat-label>Name</mat-label>
         <input
+          formControlName="email"
           aria-label="Enter the title of the Note"
           type="text"
-          formControlName="text"
           maxlength="17"
           matInput
         />
@@ -24,27 +18,32 @@
     </div>
     <div class="column">
       <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
         <input
-          aria-label="Enter the date of the Note"
+          formControlName="password"
+          aria-label="Enter the title of the Note"
+          type="password"
+          maxlength="17"
           matInput
-          [matDatepicker]="picker"
-          formControlName="day"
         />
-        <mat-label>Day and Time</mat-label>
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
-    <!-- {{ empForm.controls["day"].hasError("matDatepickerParse") | json }} -->
+    <div class="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          formControlName="confirmPassword"
+          aria-label="Enter the title of the Note"
+          type="password"
+          maxlength="17"
+          matInput
+        />
+      </mat-form-field>
+    </div>
   </div>
   <div class="action" mat-dialog-actions>
     <button
       aria-label="Enter to cancel"
-      (click)="closeDialog()"
       type="button"
       mat-raised-button
       color="warn"
@@ -56,9 +55,8 @@
       type="submit"
       mat-raised-button
       color="primary"
-      [disabled]="!empForm.valid"
     >
-      {{ data ? "UPDATE" : "SAVE" }}
+      Login
     </button>
   </div>
   <!-- {{ empForm.valid }} -->

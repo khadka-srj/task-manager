@@ -26,9 +26,11 @@ import { PageNotFoundComponentComponent } from './components/page-not-found-comp
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DeletemodalComponent } from './components/deletemodal/deletemodal.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: TaskComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponentComponent },
 ];
 
@@ -42,6 +44,7 @@ const appRoutes: Routes = [
     AddTaskComponent,
     PageNotFoundComponentComponent,
     DeletemodalComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

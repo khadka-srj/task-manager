@@ -1,0 +1,22 @@
+.header {
+  margin-bottom: 1rem;
+}
+.action {
+  button {
+    flex: 1;
+  }
+  gap: 1rem;
+  padding: 0 24px 20px;
+}
+.column {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.loginSignUpForm {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
