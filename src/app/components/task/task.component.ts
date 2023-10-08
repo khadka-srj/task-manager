@@ -30,10 +30,11 @@ export class TaskComponent {
   ngOnInit(): void {
     this.taskService.getTasks().subscribe({
       next: (tasks) => {
+        // console.log('success getting the all tasks', val);
         this.tasks = tasks;
       },
-      error: (val: any) => {
-        console.log('error getting the all tasks', val);
+      error: (err: any) => {
+        console.log('error getting the all tasks', err);
       },
     });
   }

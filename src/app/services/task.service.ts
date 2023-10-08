@@ -30,7 +30,9 @@ export class TaskService {
     return this.http.delete<Task>(url);
   }
   addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.apiUrl, task);
+    console.log(task, 'in add task service');
+    const headers = { 'content-type': 'application/json' };
+    return this.http.post<Task>(`${this.apiUrl}/new`, task);
   }
   updateTask(task: Task): Observable<Task> {
     return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task);
