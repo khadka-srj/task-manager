@@ -1,5 +1,9 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
-<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+<form
+  class="addTaskAndUpdateForm"
+  [formGroup]="empForm"
+  (ngSubmit)="onSubmit()"
+>
   <div class="formContent" mat-dialog-content>
     <mat-card-title class="header">
       {{ data ? "Update Note" : "Add Note" }}</mat-card-title
@@ -11,9 +15,12 @@
           aria-label="Enter the title of the Note"
           type="text"
           formControlName="text"
+          maxlength="15"
           matInput
         />
       </mat-form-field>
+
+      <!-- {{ empForm.controls["text"].errors | json }} -->
     </div>
     <div class="column">
       <mat-form-field appearance="outline">
@@ -31,7 +38,15 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+      <mat-error
+        *ngIf="
+          empForm.controls['day'].invalid && empForm.controls['day'].touched
+        "
+      >
+        Required
+      </mat-error>
     </div>
+    <!-- {{ empForm.controls["day"].hasError("matDatepickerParse") | json }} -->
   </div>
   <div class="action" mat-dialog-actions>
     <button
@@ -48,8 +63,10 @@
       type="submit"
       mat-raised-button
       color="primary"
+      [disabled]="!empForm.valid"
     >
       {{ data ? "UPDATE" : "SAVE" }}
     </button>
   </div>
+  <!-- {{ empForm.valid }} -->
 </form>

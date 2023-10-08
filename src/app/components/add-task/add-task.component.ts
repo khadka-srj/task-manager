@@ -1,5 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -24,8 +29,8 @@ export class AddTaskComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Task
   ) {
     this.empForm = this._fb.group({
-      text: '',
-      day: '',
+      text: new FormControl('', Validators.required),
+      day: new FormControl('', Validators.required),
     });
     this.subscription = this.taskService
       .toggleAdd()
@@ -51,27 +56,6 @@ export class AddTaskComponent implements OnInit {
     // this.onAddTask.emit(this.empForm.value);
   }
 }
-
-// form validation
-// if (!this.text) {
-//   alert("You can't leave this field empty.");
-//   return;
-// }
-// if (!this.day) {
-//   alert("You can't leave this field empty.");
-//   return;
-// }
-// if (!this.content) {
-//   alert("You can't leave this field empty.");
-//   return;
-// }
-
-// new task
-// const newTask: Task = {
-//   text: this.text,
-//   day: this.day,
-//   content: this.content,
-// };
 
 // this.router.navigate(['/']);
 // clearing the form
