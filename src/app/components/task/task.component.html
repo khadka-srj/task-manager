@@ -1,8 +1,18 @@
 <!-- <app-add-task class="hidden"></app-add-task> -->
-<div class="itemsGrid">
-  <app-task-item
-    *ngFor="let task of tasks"
-    [task]="task"
-    (onDeleteTask)="deleteTask(task)"
-  ></app-task-item>
+<div
+  class="loader"
+  aria-label="Fetching all tasks"
+  *ngIf="spinner; else showThis"
+>
+  <mat-spinner diameter="50"></mat-spinner>
 </div>
+
+<ng-template #showThis>
+  <div class="itemsGrid">
+    <app-task-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (onDeleteTask)="deleteTask(task)"
+    ></app-task-item>
+  </div>
+</ng-template>

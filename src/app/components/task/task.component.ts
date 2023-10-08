@@ -10,6 +10,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TaskComponent {
   tasks: Task[] = [];
+  spinner: boolean = true;
   tsk!: Task;
   subscription?: Subscription;
   updateSubscription?: Subscription;
@@ -32,6 +33,7 @@ export class TaskComponent {
       next: (tasks) => {
         // console.log('success getting the all tasks', val);
         this.tasks = tasks;
+        this.spinner = false;
       },
       error: (err: any) => {
         console.log('error getting the all tasks', err);
