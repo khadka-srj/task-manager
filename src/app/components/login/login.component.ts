@@ -26,7 +26,8 @@ export class LoginComponent {
     console.log('login details', this.loginForm.value);
     this.userService.login(this.loginForm.value).subscribe({
       next: (value) => {
-        localStorage.setItem('User', JSON.stringify(value));
+        localStorage.setItem('currentUser', JSON.stringify(value));
+        console.log(value);
         this.userService.setCurrentUser(value);
       },
       error: (err: any) => console.log(err),

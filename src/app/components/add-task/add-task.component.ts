@@ -52,13 +52,5 @@ export class AddTaskComponent implements OnInit {
       this.taskService.taskAdded(this.empForm.value);
       this.dialogRef.close(true);
     }
-    // to emmit we do this
-    // this.onAddTask.emit(this.empForm.value);
   }
 }
-
-// this.router.navigate(['/']);
-// clearing the form
-// this.text = '';
-// this.day = '';
-// this.content = '';

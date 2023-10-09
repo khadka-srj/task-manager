@@ -3,6 +3,7 @@
     <mat-toolbar class="mat-elevation-z6" color="primary">
       <button mat-button routerLink="/">Tasker</button>
       <span class="example-spacer"></span>
+      <div *ngIf="currentUser">{{ currentUser.name }}</div>
       <div class="toolbarButtons">
         <button
           aria-label="Enter to add a new  Note"

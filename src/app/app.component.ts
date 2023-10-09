@@ -5,6 +5,7 @@ import { Task } from 'src/Task';
 import { UserServiceService } from './services/user.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { User } from 'src/user';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   tasks: Task[] = [];
-  currentUser: any = localStorage.getItem('User');
+  // yo chai if yo component refresh bhayo bhane ya bata data populate huncha.
+  currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+
   userSubscription?: Subscription;
   title = 'testapp';
   constructor(
@@ -21,12 +24,12 @@ export class AppComponent implements OnInit {
     private userService: UserServiceService,
     private router: Router
   ) {
-    this.userSubscription = this.userService
-      .getCurrentUser()
-      .subscribe((value) => (this.currentUser = value));
+    this.userService.getCurrentUser().subscribe((value) => {
+      this.currentUser = value;
+    });
   }
   ngOnInit(): void {
-    this.currentUser = localStorage.getItem('User');
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser')!);
   }
   openAddEditDialog() {
     this._dialog.open(AddTaskComponent);
