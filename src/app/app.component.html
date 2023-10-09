@@ -13,15 +13,29 @@
         >
           <mat-icon>note_add</mat-icon>
         </button>
+
         <button
+          *ngIf="currentUser; else showThis"
           aria-label="Enter to login to your account"
           class="smallButton"
           mat-raised-button
           color="primary"
-          routerLink="/login"
+          (click)="logout()"
         >
-          LOGIN
+          LOGOUT
         </button>
+
+        <ng-template #showThis>
+          <button
+            aria-label="Enter to login to your account"
+            class="smallButton"
+            mat-raised-button
+            color="primary"
+            routerLink="/login"
+          >
+            LOGIN
+          </button>
+        </ng-template>
       </div>
     </mat-toolbar>
   </div>

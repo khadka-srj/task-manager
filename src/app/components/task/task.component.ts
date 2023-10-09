@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
+import { UserServiceService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-task',
@@ -9,6 +10,7 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent {
+  user: any = null;
   tasks: Task[] = [];
   spinner: boolean = true;
   tsk!: Task;
@@ -16,7 +18,10 @@ export class TaskComponent {
   updateSubscription?: Subscription;
   deleteSubscription?: Subscription;
   // yo constructor ma chai argument deko lai chai dependency injection bhanincha kina bhane this class is depended on that service.
-  constructor(private taskService: TaskService) {
+  constructor(
+    private taskService: TaskService,
+    private userService: UserServiceService
+  ) {
     this.subscription = this.taskService
       .toggleAdd()
       .subscribe((value) => this.addTask(value));

@@ -1,63 +1,78 @@
 <!-- ngSumbit handles the preventdefault automatically. -->
-<form class="loginSignUpForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="formContent" mat-dialog-content>
-    <mat-card-title class="header"> login/signup</mat-card-title>
-    <div class="column">
-      <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
-        <input
-          formControlName="email"
-          aria-label="Enter the title of the Note"
-          type="text"
-          maxlength="17"
-          matInput
-        />
-      </mat-form-field>
+<div class="loginSignUp">
+  <mat-card>
+    <form
+      class="loginSignUp__form"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="formContent" mat-dialog-content>
+        <mat-card-title class="header">Login</mat-card-title>
 
-      <!-- {{ empForm.controls["text"].errors | json }} -->
-    </div>
-    <div class="column">
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input
-          formControlName="password"
-          aria-label="Enter the title of the Note"
-          type="password"
-          maxlength="17"
-          matInput
-        />
-      </mat-form-field>
-    </div>
-    <div class="column">
-      <mat-form-field appearance="outline">
-        <mat-label>Confirm Password</mat-label>
-        <input
-          formControlName="confirmPassword"
-          aria-label="Enter the title of the Note"
-          type="password"
-          maxlength="17"
-          matInput
-        />
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="action" mat-dialog-actions>
-    <button
-      aria-label="Enter to cancel"
-      type="button"
-      mat-raised-button
-      color="warn"
-    >
-      CANCEL
-    </button>
-    <button
-      aria-label="Enter to save the note"
-      type="submit"
-      mat-raised-button
-      color="primary"
-    >
-      Login
-    </button>
-  </div>
-  <!-- {{ empForm.valid }} -->
-</form>
+        <div class="column">
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input
+              formControlName="email"
+              aria-label="Enter the title of the Note"
+              type="text"
+              maxlength="17"
+              matInput
+            />
+          </mat-form-field>
+          <!-- {{ empForm.controls["text"].errors | json }} -->
+        </div>
+
+        <div class="column">
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              formControlName="password"
+              aria-label="Enter the title of the Note"
+              type="password"
+              maxlength="17"
+              matInput
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="column">
+          <mat-form-field appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              formControlName="confirmPassword"
+              aria-label="Enter the title of the Note"
+              type="password"
+              maxlength="17"
+              matInput
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="action" mat-dialog-actions>
+        <button
+          aria-label="Enter to save the note"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >
+          Login
+        </button>
+      </div>
+
+      <div class="switch">
+        <button
+          mat-button
+          href="https://www.google.com/"
+          color="warn"
+          target="_blank"
+        >
+          Dont have an account? signup
+        </button>
+      </div>
+
+      <!-- {{ empForm.valid }} -->
+    </form>
+  </mat-card>
+</div>
