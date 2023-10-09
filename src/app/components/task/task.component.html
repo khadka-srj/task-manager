@@ -8,7 +8,11 @@
 </div>
 
 <ng-template #showThis>
-  <div class="itemsGrid">
+  <div class="heroProfile">
+    <h2>Your profile</h2>
+  </div>
+
+  <div class="itemsGrid container">
     <app-task-item
       *ngFor="let task of tasks"
       [task]="task"

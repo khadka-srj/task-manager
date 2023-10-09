@@ -17,6 +17,7 @@ export class TaskComponent {
   subscription?: Subscription;
   updateSubscription?: Subscription;
   deleteSubscription?: Subscription;
+  currentUser = JSON.parse(localStorage.getItem('currentUser')!);
   // yo constructor ma chai argument deko lai chai dependency injection bhanincha kina bhane this class is depended on that service.
   constructor(
     private taskService: TaskService,
@@ -31,6 +32,9 @@ export class TaskComponent {
     this.deleteSubscription = this.taskService
       .toggleDelete()
       .subscribe((value) => this.deleteTask(value));
+    this.currentUser = this.userService
+      .getCurrentUser()
+      .subscribe((value) => (this.currentUser = value));
   }
   // ngOnInit chai lifecycle method ho ra yo initialize huda run huncha.
   ngOnInit(): void {

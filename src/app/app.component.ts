@@ -5,7 +5,6 @@ import { Task } from 'src/Task';
 import { UserServiceService } from './services/user.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { User } from 'src/user';
 
 @Component({
   selector: 'app-root',

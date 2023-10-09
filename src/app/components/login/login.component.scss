@@ -1,6 +1,5 @@
 .header {
   margin-bottom: 1rem;
-  text-align: center;
 }
 .action {
   button {
@@ -30,4 +29,21 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+.heroLogin {
+  h2 {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    color: white;
+  }
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  background-color: #3f51b5;
+  height: 6rem;
+  width: 100%;
 }

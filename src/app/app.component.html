@@ -1,15 +1,26 @@
 <div class="contentGrid">
   <div class="contentGrid__toolbar">
     <mat-toolbar class="mat-elevation-z6" color="primary">
-      <button mat-button routerLink="/">Tasker</button>
+      <button aria-level="click here to go home" mat-button routerLink="/">
+        Home
+      </button>
+      <button
+        *ngIf="currentUser"
+        aria-level="click here to go to your profile"
+        mat-button
+        routerLink="/task"
+      >
+        {{ currentUser.name }}
+      </button>
+
       <span class="example-spacer"></span>
-      <div *ngIf="currentUser">{{ currentUser.name }}</div>
+
       <div class="toolbarButtons">
         <button
           aria-label="Enter to add a new  Note"
           class="smallButton"
           mat-icon-button
-          class=""
+          [disabled]="!currentUser"
           (click)="openAddEditDialog()"
         >
           <mat-icon>note_add</mat-icon>
@@ -40,7 +51,8 @@
       </div>
     </mat-toolbar>
   </div>
-  <div class="container">
+
+  <div>
     <router-outlet></router-outlet>
     <!-- routerOutlet ko home ma chai app-task or taskComponent cha so it is shown automatically -->
   </div>
