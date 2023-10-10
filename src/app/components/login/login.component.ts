@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user.service';
 import { Meta } from '@angular/platform-browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private logForm: FormBuilder,
     private userService: UserServiceService,
-    private meta: Meta
+    private meta: Meta,
+    private snackbar: MatSnackBar
   ) {
     this.loginForm = this.logForm.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -48,9 +50,14 @@ export class LoginComponent implements OnInit {
       },
       error: (err: any) => {
         if (err.status === 400) {
-          return alert('the username or password was incorrect');
+          this.snackbar.open('The username or password was incorrect', 'Close');
+          return;
         } else if (err.status === 0) {
-          return alert('The server is currently down.Please try again later.');
+          this.snackbar.open(
+            'The server is currently down. Please try again later.',
+            'Close'
+          );
+          return;
         }
       },
     });
