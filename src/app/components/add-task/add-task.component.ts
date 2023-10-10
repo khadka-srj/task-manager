@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
 

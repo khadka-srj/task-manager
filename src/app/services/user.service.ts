@@ -6,7 +6,8 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class UserServiceService {
-  private apiUrl = 'http://localhost:5000';
+  // private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'https://angular-tasker-backend.onrender.com';
   userSubject = new Subject<any>();
 
   constructor(private http: HttpClient) {}

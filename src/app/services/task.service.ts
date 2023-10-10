@@ -11,7 +11,8 @@ export class TaskService {
   private subject = new Subject<any>();
   private subjectUpdate = new Subject<any>();
   private subjectDelete = new Subject<any>();
-  private apiUrl = 'http://localhost:5000';
+  // private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'https://angular-tasker-backend.onrender.com';
 
   constructor(private http: HttpClient) {}
 
