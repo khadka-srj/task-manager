@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
@@ -20,7 +21,8 @@ export class TaskComponent {
   constructor(
     private taskService: TaskService,
     private userService: UserServiceService,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) {
     this.taskService.toggleAdd().subscribe((value) => this.addTask(value));
     this.taskService
@@ -42,30 +44,39 @@ export class TaskComponent {
         this.spinner = false;
       },
       error: (err: any) => {
-        console.log('error getting the all tasks', err.status);
         if (err.status === 0) {
-          alert('server is down.');
+          this.snackbar.open('server is down. Try again later.', 'Close', {
+            duration: 2000,
+          });
           this.router.navigate(['/']);
         }
       },
     });
   }
-
+  // this.tasks = this.tasks.filter((t) => t.id !== task.id
   deleteTask(task: Task) {
-    this.taskService
-      .deleteTask(task)
-      .subscribe(
-        () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
-      );
+    this.taskService.deleteTask(task).subscribe({
+      next: (task) => {
+        this.tasks = this.tasks.filter((t) => t.id !== task.id);
+        this.snackbar.open('Task deleted.', 'close', { duration: 2000 });
+      },
+      error: (err) => {
+        // console.log(err);
+        this.snackbar.open('Server error', 'close');
+      },
+    });
   }
 
   addTask(task: Task) {
     this.taskService.addTask(task).subscribe({
       next: (task: any) => {
         this.tasks.push(task);
+        this.snackbar.open('Task added.', 'close', { duration: 2000 });
+        this.router.navigate(['/profile']);
       },
       error: (val: any) => {
-        console.log('error in adding task', val);
+        this.snackbar.open('Server error', 'close', { duration: 2000 });
+        // console.log('error in adding task', val);
       },
     });
   }
@@ -77,9 +88,11 @@ export class TaskComponent {
           (task) => task.id === val.id
         );
         this.tasks[taskToBeUpdated] = val;
+        this.snackbar.open('Task updated.', 'close', { duration: 2000 });
       },
       error: (val: any) => {
-        console.log('error in adding task', val);
+        // console.log('error in adding task', val);
+        this.snackbar.open('Server error', 'close', { duration: 2000 });
       },
     });
   }
