@@ -16,6 +16,7 @@ import { Meta } from '@angular/platform-browser';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  showPassword: boolean = false;
   constructor(
     private router: Router,
     private logForm: FormBuilder,
@@ -53,5 +54,9 @@ export class LoginComponent implements OnInit {
         }
       },
     });
+  }
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
   }
 }
