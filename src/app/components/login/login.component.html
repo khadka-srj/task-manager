@@ -1,4 +1,3 @@
-<!-- ngSumbit handles the preventdefault automatically. -->
 <div class="heroLogin">
   <h2>Login/Sign up Page</h2>
 </div>
@@ -14,12 +13,11 @@
 
         <div class="column">
           <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
+            <mat-label>Email</mat-label>
             <input
               formControlName="email"
-              aria-label="Enter the title of the Note"
+              aria-label="Enter your email here"
               type="text"
-              maxlength="17"
               matInput
             />
           </mat-form-field>
@@ -31,26 +29,12 @@
             <mat-label>Password</mat-label>
             <input
               formControlName="password"
-              aria-label="Enter the title of the Note"
+              aria-label="Enter your password here"
               type="password"
-              maxlength="17"
               matInput
             />
           </mat-form-field>
         </div>
-
-        <!-- <div class="column">
-          <mat-form-field appearance="outline">
-            <mat-label>Confirm Password</mat-label>
-            <input
-              formControlName="confirmPassword"
-              aria-label="Enter the title of the Note"
-              type="password"
-              maxlength="17"
-              matInput
-            />
-          </mat-form-field>
-        </div> -->
       </div>
 
       <div class="action" mat-dialog-actions>

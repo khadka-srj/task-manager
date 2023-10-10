@@ -1,12 +1,12 @@
 <div class="contentGrid">
   <div class="contentGrid__toolbar">
     <mat-toolbar class="mat-elevation-z6" color="primary">
-      <button aria-level="click here to go home" mat-button routerLink="/">
+      <button aria-label="click here to go home" mat-button routerLink="/">
         Home
       </button>
       <button
         *ngIf="currentUser"
-        aria-level="click here to go to your profile"
+        aria-label="click here to go to your profile"
         mat-button
         routerLink="/profile"
       >

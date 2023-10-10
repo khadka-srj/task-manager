@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
 import { UserServiceService } from 'src/app/services/user.service';
@@ -14,38 +14,39 @@ export class TaskComponent {
   tasks: Task[] = [];
   spinner: boolean = true;
   tsk!: Task;
-  subscription?: Subscription;
-  updateSubscription?: Subscription;
-  deleteSubscription?: Subscription;
+
   currentUser = JSON.parse(localStorage.getItem('currentUser')!);
   // yo constructor ma chai argument deko lai chai dependency injection bhanincha kina bhane this class is depended on that service.
   constructor(
     private taskService: TaskService,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private router: Router
   ) {
-    this.subscription = this.taskService
-      .toggleAdd()
-      .subscribe((value) => this.addTask(value));
-    this.updateSubscription = this.taskService
+    this.taskService.toggleAdd().subscribe((value) => this.addTask(value));
+    this.taskService
       .toggleupdate()
       .subscribe((value) => this.UpdateTask(value));
-    this.deleteSubscription = this.taskService
+    this.taskService
       .toggleDelete()
       .subscribe((value) => this.deleteTask(value));
-    this.currentUser = this.userService
+    this.userService
       .getCurrentUser()
       .subscribe((value) => (this.currentUser = value));
   }
+
   // ngOnInit chai lifecycle method ho ra yo initialize huda run huncha.
   ngOnInit(): void {
     this.taskService.getTasks().subscribe({
       next: (tasks) => {
-        // console.log('success getting the all tasks', val);
         this.tasks = tasks;
         this.spinner = false;
       },
       error: (err: any) => {
-        console.log('error getting the all tasks', err);
+        console.log('error getting the all tasks', err.status);
+        if (err.status === 0) {
+          alert('server is down.');
+          this.router.navigate(['/']);
+        }
       },
     });
   }
