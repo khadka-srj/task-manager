@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +6,5 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  showAddNote?: boolean;
-  subscription?: Subscription;
   constructor() {}
-  faAdd = faPenToSquare;
 }

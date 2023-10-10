@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { Task } from 'src/Task';
 import { UserServiceService } from './services/user.service';
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,8 +14,6 @@ export class AppComponent implements OnInit {
   tasks: Task[] = [];
   // yo chai if yo component refresh bhayo bhane ya bata data populate huncha.
   currentUser = JSON.parse(localStorage.getItem('currentUser')!);
-
-  userSubscription?: Subscription;
   title = 'testapp';
   constructor(
     private _dialog: MatDialog,

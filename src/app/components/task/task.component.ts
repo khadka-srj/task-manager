@@ -11,7 +11,6 @@ import { UserServiceService } from 'src/app/services/user.service';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent {
-  user: any = null;
   tasks: Task[] = [];
   spinner: boolean = true;
   tsk!: Task;
@@ -53,7 +52,7 @@ export class TaskComponent {
       },
     });
   }
-  // this.tasks = this.tasks.filter((t) => t.id !== task.id
+
   deleteTask(task: Task) {
     this.taskService.deleteTask(task).subscribe({
       next: (task) => {
