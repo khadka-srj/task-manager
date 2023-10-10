@@ -34,31 +34,34 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.userService.login(this.loginForm.value).subscribe({
-      next: (value) => {
-        localStorage.setItem('currentUser', JSON.stringify(value));
-        this.userService.setCurrentUser(value);
-        this.snackbar.open('Welcome back', 'Close', { duration: 2000 });
-        this.router.navigate(['/profile']);
-      },
-      error: (err: any) => {
-        if (err.status === 400) {
-          this.snackbar.open(
-            'The username or password was incorrect',
-            'Close',
-            { duration: 2000 }
-          );
-          return;
-        } else if (err.status === 0) {
-          this.snackbar.open(
-            'The server is currently down. Please try again later.',
-            'Close',
-            { duration: 2000 }
-          );
-          return;
-        }
-      },
-    });
+    if (this.loginForm.valid) {
+      this.userService.login(this.loginForm.value).subscribe({
+        next: (value) => {
+          localStorage.setItem('currentUser', JSON.stringify(value));
+          this.userService.setCurrentUser(value);
+          this.snackbar.open('Welcome back', 'Close', { duration: 2000 });
+          this.router.navigate(['/profile']);
+        },
+        error: (err: any) => {
+          if (err.status === 400) {
+            this.snackbar.open(
+              'The username or password was incorrect',
+              'Close',
+              { duration: 2000 }
+            );
+            return;
+          } else if (err.status === 0) {
+            this.snackbar.open(
+              'The server is currently down. Please try again later.',
+              'Close',
+              { duration: 2000 }
+            );
+            return;
+          }
+        },
+      });
+    }
+    return;
   }
 
   togglePassword() {
