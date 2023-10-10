@@ -14,6 +14,7 @@
 }
 
 .loginSignUp {
+  margin-top: 2rem;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -21,6 +22,9 @@
   &__form {
     padding: 2rem;
   }
+}
+h2 {
+  color: hsl(233, 26%, 24%);
 }
 .switch {
   p {

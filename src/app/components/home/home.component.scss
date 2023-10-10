@@ -12,6 +12,7 @@
     font-weight: 300;
     line-height: 28px;
     color: white;
+    margin-bottom: 2rem;
   }
   margin-bottom: 1rem;
   display: flex;
@@ -22,4 +23,19 @@
   background-color: #3f51b5;
   height: 20rem;
   width: 100%;
+}
+.introGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  h2 {
+    font-size: 25px;
+    font-weight: 400;
+  }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+  }
 }
