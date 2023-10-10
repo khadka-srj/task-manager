@@ -1,4 +1,3 @@
-<!-- ngSumbit handles the preventdefault automatically. -->
 <form
   class="addTaskAndUpdateForm"
   [formGroup]="empForm"
@@ -18,18 +17,31 @@
           maxlength="17"
           matInput
         />
+        <mat-error
+          *ngIf="
+            empForm.controls['text'].invalid &&
+            (empForm.controls['text'].dirty || empForm.controls['text'].touched)
+          "
+          >Required field</mat-error
+        >
       </mat-form-field>
-
-      <!-- {{ empForm.controls["text"].errors | json }} -->
     </div>
     <div class="column">
       <mat-form-field appearance="outline">
         <input
           aria-label="Enter the date of the Note"
           matInput
+          type="number"
           [matDatepicker]="picker"
           formControlName="day"
         />
+        <mat-error
+          *ngIf="
+            empForm.controls['day'].invalid &&
+            (empForm.controls['day'].dirty || empForm.controls['day'].touched)
+          "
+          >Required field</mat-error
+        >
         <mat-label>Day and Time</mat-label>
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
@@ -38,8 +50,8 @@
         ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+      {{ empForm.controls["day"].errors | json }}
     </div>
-    <!-- {{ empForm.controls["day"].hasError("matDatepickerParse") | json }} -->
   </div>
   <div class="action" mat-dialog-actions>
     <button
@@ -61,5 +73,4 @@
       {{ data ? "UPDATE" : "SAVE" }}
     </button>
   </div>
-  <!-- {{ empForm.valid }} -->
 </form>
