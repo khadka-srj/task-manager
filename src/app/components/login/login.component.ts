@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user.service';
 import { Meta } from '@angular/platform-browser';
@@ -18,9 +23,12 @@ export class LoginComponent implements OnInit {
     private meta: Meta
   ) {
     this.loginForm = this.logForm.group({
-      email: '',
-      password: '',
-      confirmPassword: '',
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+        Validators.minLength(8),
+      ]),
     });
   }
   ngOnInit(): void {
@@ -29,6 +37,7 @@ export class LoginComponent implements OnInit {
       content: 'This is a page to Login to the tasker app.',
     });
   }
+
   onSubmit() {
     this.userService.login(this.loginForm.value).subscribe({
       next: (value) => {

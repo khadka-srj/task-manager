@@ -1,5 +1,5 @@
 <div class="heroLogin">
-  <h2>Login/Sign up Page</h2>
+  <h2>Login/SignUp</h2>
 </div>
 <div class="loginSignUp">
   <mat-card>
@@ -9,10 +9,10 @@
       (ngSubmit)="onSubmit()"
     >
       <div class="formContent" mat-dialog-content>
-        <h2 class="header">Login to Tasker</h2>
+        <h2 class="header">Login</h2>
 
         <div class="column">
-          <mat-form-field appearance="outline">
+          <mat-form-field>
             <mat-label>Email</mat-label>
             <input
               formControlName="email"
@@ -20,12 +20,19 @@
               type="text"
               matInput
             />
+            <mat-error
+              *ngIf="
+                loginForm.controls['email'].invalid &&
+                (loginForm.controls['email'].dirty ||
+                  loginForm.controls['email'].touched)
+              "
+              >This email is not valid</mat-error
+            >
           </mat-form-field>
-          <!-- {{ empForm.controls["text"].errors | json }} -->
         </div>
 
         <div class="column">
-          <mat-form-field appearance="outline">
+          <mat-form-field>
             <mat-label>Password</mat-label>
             <input
               formControlName="password"
@@ -33,6 +40,16 @@
               type="password"
               matInput
             />
+            <mat-icon matSuffix>visibility</mat-icon>
+            <!-- <mat-hint>Hint</mat-hint> -->
+            <mat-error
+              *ngIf="
+                loginForm.controls['password'].invalid &&
+                (loginForm.controls['password'].dirty ||
+                  loginForm.controls['password'].touched)
+              "
+              >Password should be 8 characters long.</mat-error
+            >
           </mat-form-field>
         </div>
       </div>
@@ -43,6 +60,7 @@
           type="submit"
           mat-raised-button
           color="primary"
+          [disabled]="!loginForm.valid"
         >
           Login
         </button>
