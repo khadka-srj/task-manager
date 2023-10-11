@@ -7,7 +7,7 @@ import { Task } from 'src/Task';
   providedIn: 'root',
 })
 export class TaskService {
-  private tsk!: Task;
+  private tsk: any = null;
   private subject = new Subject<any>();
   private subjectUpdate = new Subject<any>();
   private subjectDelete = new Subject<any>();
@@ -33,11 +33,12 @@ export class TaskService {
   }
 
   // subject ko code
-  taskAdded(tsk: Task): void {
+  taskAdded(tsk: any): void {
     this.tsk = tsk;
     this.subject.next(this.tsk);
   }
   toggleAdd(): Observable<any> {
+    console.log(this.subject, 'Suuuuuuuu');
     return this.subject.asObservable();
   }
   // updatesubject ko code

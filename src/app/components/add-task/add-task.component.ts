@@ -15,7 +15,6 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent implements OnInit {
-  tsk?: Task;
   empForm: FormGroup;
   // yo inject mat-dialog data gareko chai dailog open garda data cha bhane tyo data ma aeera bascha.
   constructor(
@@ -28,7 +27,6 @@ export class AddTaskComponent implements OnInit {
       text: new FormControl('', Validators.required),
       day: new FormControl('', Validators.required),
     });
-    this.taskService.toggleAdd().subscribe((value) => (this.tsk = value));
   }
 
   ngOnInit(): void {

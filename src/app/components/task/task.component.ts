@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
 import { UserServiceService } from 'src/app/services/user.service';
@@ -10,10 +11,11 @@ import { UserServiceService } from 'src/app/services/user.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss'],
 })
-export class TaskComponent {
+export class TaskComponent implements OnDestroy {
   tasks: Task[] = [];
   spinner: boolean = true;
   tsk!: Task;
+  subscription?: Subscription;
 
   currentUser = JSON.parse(localStorage.getItem('currentUser')!);
   // yo constructor ma chai argument deko lai chai dependency injection bhanincha kina bhane this class is depended on that service.
@@ -23,7 +25,9 @@ export class TaskComponent {
     private router: Router,
     private snackbar: MatSnackBar
   ) {
-    this.taskService.toggleAdd().subscribe((value) => this.addTask(value));
+    this.subscription = this.taskService
+      .toggleAdd()
+      .subscribe((value) => this.addTask(value));
     this.taskService
       .toggleupdate()
       .subscribe((value) => this.UpdateTask(value));
@@ -70,6 +74,7 @@ export class TaskComponent {
     this.taskService.addTask(task).subscribe({
       next: (task: any) => {
         this.tasks.push(task);
+        this.subscription?.remove;
         this.snackbar.open('Task added.', 'close', { duration: 2000 });
         this.router.navigate(['/profile']);
       },
@@ -94,5 +99,8 @@ export class TaskComponent {
         this.snackbar.open('Server error', 'close', { duration: 2000 });
       },
     });
+  }
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 }
