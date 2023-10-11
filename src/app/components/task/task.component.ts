@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { Task } from 'src/Task';
 import { TaskService } from 'src/app/services/task.service';
 import { UserServiceService } from 'src/app/services/user.service';
+import { AddTaskComponent } from '../add-task/add-task.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-task',
@@ -23,7 +25,8 @@ export class TaskComponent implements OnDestroy {
     private taskService: TaskService,
     private userService: UserServiceService,
     private router: Router,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private _dialog: MatDialog
   ) {
     this.subscription = this.taskService
       .toggleAdd()
@@ -100,6 +103,11 @@ export class TaskComponent implements OnDestroy {
       },
     });
   }
+
+  openAddEditDialog() {
+    this._dialog.open(AddTaskComponent);
+  }
+
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }

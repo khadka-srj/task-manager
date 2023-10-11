@@ -9,6 +9,15 @@
 <ng-template #showThis>
   <div class="heroProfile">
     <h2>Your profile</h2>
+    <button
+      aria-label="Enter to add a new note"
+      class="smallButton"
+      mat-mini-fab
+      (click)="openAddEditDialog()"
+      color="primary"
+    >
+      <mat-icon>note_add</mat-icon>
+    </button>
   </div>
 
   <div class="itemsGrid container">
