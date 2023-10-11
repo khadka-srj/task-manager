@@ -17,16 +17,6 @@
       <span class="example-spacer"></span>
 
       <div class="toolbarButtons">
-        <!-- <button
-          aria-label="Enter to add a new note"
-          class="smallButton"
-          mat-icon-button
-          [disabled]="!currentUser"
-          (click)="openAddEditDialog()"
-        >
-          <mat-icon>note_add</mat-icon>
-        </button> -->
-
         <button
           *ngIf="currentUser; else showThis"
           aria-label="Enter to login to your account"
