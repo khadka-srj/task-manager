@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  isLoggedIn = localStorage.getItem('currentUser');
   constructor(private router: Router) {}
 
   redirectToLogin() {
-    this.router.navigate(['/login']);
+    if (this.isLoggedIn) {
+      this.router.navigate(['/profile']);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 }
