@@ -38,7 +38,6 @@ export class TaskService {
     this.subject.next(this.tsk);
   }
   toggleAdd(): Observable<any> {
-    console.log(this.subject, 'Suuuuuuuu');
     return this.subject.asObservable();
   }
   // updatesubject ko code

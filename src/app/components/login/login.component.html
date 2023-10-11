@@ -64,7 +64,8 @@
           color="primary"
           [disabled]="!loginForm.valid && loginForm.touched"
         >
-          Login
+          {{ spin ? "" : "Login" }}
+          <fa-icon [icon]="faSpinner" [spin]="true" *ngIf="spin"></fa-icon>
         </button>
       </div>
 
