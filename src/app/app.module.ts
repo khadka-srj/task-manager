@@ -28,10 +28,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DeletemodalComponent } from './components/deletemodal/deletemodal.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { authGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'profile', component: TaskComponent },
+  { path: 'profile', canActivate: [authGuard], component: TaskComponent },
   { path: 'login', component: LoginComponent },
   { path: '**', component: PageNotFoundComponentComponent },
 ];
